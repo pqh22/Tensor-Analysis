@@ -1,0 +1,379 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cases}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\geometry{a4paper}
+\usepackage{lmodern}
+
+\title{张量大作业}
+\author{彭启航\\2022013326}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{第一题}
+
+\begin{equation*}
+ \nabla_m\Big(\sqrt{g}\textit{\textbf{g}}^m\otimes \textit{\textbf{T}} 
+\Big)=\frac{\partial}{\partial x^m}\Big(\sqrt{g}\textit{\textbf{g}}^m\otimes \textit{\textbf{T}} \Big)\tag{1-1}
+\end{equation*}
+
+\subsection{Euler描述}
+
+以下均在广义协变微分学的Euler描述下考虑。\par
+在Euler空间域下，Euler空间域下的广义协变性与静态空间域下的广义协变性一脉相承；Euler空间域中的广义协变微分学，与静态空间域的广义协变微分学完全一致。从级数展开的角度看，该命题的代数基础是牢固的。\par
+现在，我们在Euler坐标系下考察连续介质的运动。连续介质中的物质点可以用 $\hat{\xi^p}$标记。因为Euler坐标系是固定不动的坐标系，可以理解为静止的背景参照系，所以不难发现连续体上的物质点的Euler坐标 $x^m$，既与物质点$\hat{\xi^p}$有关，也与时间t有关，即可用下式表示连续体上的物质点的Euler坐标:
+\begin{equation*}
+    x^m=x^m(\hat{\xi^p},t)\tag{1-2}
+\end{equation*}
+基于(1-2)，连续体上任意物质点的矢径 $\textbf{\textit{r}}$可以表示为：
+\begin{equation*}
+    \textbf{\textit{r}}=\textbf{\textit{r}}[x^m(\hat{\xi^p},t)]\tag{1-3}
+\end{equation*}
+矢径 $\textbf{\textit{r}}$确定了，即可确定连续体内物质点处的协变基矢量：
+\begin{equation*}
+    \textit{\textbf{g}}_i=\frac{\partial\textbf{\textit{r}}}{\partial x^i}=\textit{\textbf{g}}_i[x^m(\hat{\xi^p},t)]\tag{1-4}
+\end{equation*}
+逆变基矢量 $\textit{\textbf{g}}^i$是虚构的几何概念,可以通过对偶关系( $\textit{\textbf{g}}^i\cdot \textit{\textbf{g}}_j=\delta^i_j$)确定，此处不再赘述。物质点处的协变基矢量与逆变基矢量，统称为Euler基矢量。(1-4)中的Euler基矢量$\textit{\textbf{g}}_i$仍然是自然基矢量。一组自然基矢量可以构成Euler自然标架。\par
+通过观察(1-2)与(1-3)可以注意到，物质点坐标 $x^i$是矢径$\textbf{\textit{r}}$的自变量，而时间参数t作为$x^i$的自变量，又隐含在$\textbf{\textit{r}}$内，所以根据殷老师专著上的定义，连续体上任意物质点的矢径 $\textbf{\textit{r}}$是隐态函数。同理可知$\textit{\textbf{g}}_i$也是隐态函数。所以Euler描述下自然基矢量对坐标$x^m$的广义协变导数的定义与静态空间域上完全一致。\par
+因此，根据协变形式不变性公设有：
+\begin{equation*}
+    \nabla_m\textit{\textbf{g}}^i := \frac{\partial \textit{\textbf{g}}^i}{\partial x^m}+\textit{\textbf{g}}^k\Gamma_{km}^{i}
+\end{equation*}
+\begin{equation*}
+    \nabla_m\textit{\textbf{g}}_i := \frac{\partial \textit{\textbf{g}}_i}{\partial x^m}-\textit{\textbf{g}}_k\Gamma_{im}^{k}
+    \tag{1-5}
+\end{equation*}
+由于度量张量的Euler协变分量$g_{ij}$的行列式的根式为$\sqrt{g}$,其定义式为
+\begin{equation*}
+    \sqrt{g}=(\textit{\textbf{g}}_1 \times \textit{\textbf{g}}_2 )\cdot \textit{\textbf{g}}_3
+\end{equation*}
+$\sqrt{g}$可视为3-指标Euler广义分量，进而在协变形式不变性公设下，其对时间的广义协变导数为
+\begin{align*}
+    \nabla_m\sqrt{g}&= \frac{\partial[(\textit{\textbf{g}}_1 \times \textit{\textbf{g}}_2 )\cdot \textit{\textbf{g}}_3]}{\partial x^m}-[(\textit{\textbf{g}}_l \times \textit{\textbf{g}}_2 )\cdot \textit{\textbf{g}}_3]\Gamma_{1m}^{l}  -[(\textit{\textbf{g}}_1 \times \textit{\textbf{g}}_l )\cdot \textit{\textbf{g}}_3]\Gamma_{2m}^{l}  -[(\textit{\textbf{g}}_1 \times \textit{\textbf{g}}_2 )\cdot \textit{\textbf{g}}_l]\Gamma_{3m}^{l} \\
+    &=\frac{\partial [(\textit{\textbf{g}}_1 \times \textit{\textbf{g}}_2 )\cdot \textit{\textbf{g}}_3]}{\partial x^m}-\sqrt{g}\Gamma_{1m}^1 -\sqrt{g}\Gamma_{2m}^2 -\sqrt{g}\Gamma_{3m}^3 \\
+    &=\frac{\partial \sqrt{g}}{\partial x^m}-\sqrt{g}\Gamma_{jm}^j \tag{1-6}
+\end{align*}
+所以根据(1-5)与(1-6)可知，
+\begin{equation*}
+    \nabla_m(\sqrt{g}\textit{\textbf{g}}^i)=\frac{\partial (\sqrt{g}\textit{\textbf{g}}^i)}{\partial x^m}-(\sqrt{g}\textit{\textbf{g}}^i)\Gamma_{jm}^j+(\sqrt{g}\textit{\textbf{g}}^k)\Gamma_{km}^i\tag{1-7}
+\end{equation*}
+但是，(1-7)尚还不是协变微分不变式。此时，缩并指标i，m，可得：
+\begin{equation*}
+     \nabla_m(\sqrt{g}\textit{\textbf{g}}^m)=\frac{\partial (\sqrt{g}\textit{\textbf{g}}^m)}{\partial x^m}-(\sqrt{g}\textit{\textbf{g}}^m)\Gamma_{jm}^j+ (\sqrt{g}\textit{\textbf{g}}^k)\Gamma_{km}^m\tag{1-8}
+\end{equation*}
+注意到(1-8)中的后两个代数项组合在一起，正好抵消：
+\begin{equation*}
+    -(\sqrt{g}\textit{\textbf{g}}^m)\Gamma_{jm}^j+ (\sqrt{g}\textit{\textbf{g}}^k)\Gamma_{km}^m \equiv 0
+\end{equation*}
+此时随着Christoffel符号的消失，(1-8)退化为：
+\begin{equation*}
+     \nabla_m(\sqrt{g}\textit{\textbf{g}}^m)=\frac{\partial (\sqrt{g}\textit{\textbf{g}}^m)}{\partial x^m}\tag{1-9}
+\end{equation*}
+为了推导(1-1)，我们来回忆对于实体张量 $\textit{\textbf{T}} $ 的广义协变导数与偏导数的关系：
+\begin{equation*}
+    \nabla_m\textit{\textbf{T}} = \frac{\partial\textit{\textbf{T}} }{\partial x^m}\tag{1-10}
+\end{equation*}
+下面进行最后的推导：
+\begin{align*}
+    \nabla_m \Big(\sqrt{g}\textit{\textbf{g}}^m\otimes \textit{\textbf{T}} \Big) &=[ \nabla_m (\sqrt{g}\textit{\textbf{g}}^m)] \otimes \textit{\textbf{T}} + (\sqrt{g}\textit{\textbf{g}}^m) \otimes (\nabla_m \textit{\textbf{T}})\\
+    &=\frac{\partial (\sqrt{g}\textit{\textbf{g}}^m)}{\partial x^m} \otimes \textit{\textbf{T}} + (\sqrt{g}\textit{\textbf{g}}^m) \otimes \frac{\partial\textit{\textbf{T}} }{\partial x^m}\\
+    &=\frac{\partial}{\partial x^m}\Big(\sqrt{g}\textit{\textbf{g}}^m\otimes \textit{\textbf{T}} \Big) 
+\end{align*}
+此处，第一个等式用到Leibniz法则，第二个等式用到(1-9)和(1-10)，第三个等式还是利用Leibniz法则。由此(1-1)在Euler描述下仍然成立。
+
+
+\subsection{Lagrange描述}
+以下均在广义协变微分学的Euler描述下考虑。\par
+Lagrange描述下，坐标 $\hat{x}^m$ 也称为随体坐标，其坐标线嵌入在连续介质内，随着介质一起运动，一起变形。换言之，任何一条Lagrange坐标线都是由物质点排列而成的曲线。由于坐标线网与连续体一起变形，故某个物质点的坐标$\hat{x}^m$是永恒不变的定值。因此，Lagrange坐标$\hat{x}^m$与时间参数
+$\hat{t}$无关，是相互独立的自变量。基于$\hat{x}^m$与$\hat{t}$的无关性，连续体上的任意物质点的矢径$\textbf{\textit{r}}$，可以表示为如下函数形态：
+\begin{equation*}
+    \textbf{\textit{r}}=\textbf{\textit{r}}(\hat{x}^m,\hat{t})\tag{1-11}
+\end{equation*}
+即函数显含坐标$\hat{x}^m$与参数$\hat{t}$。\par
+按照殷老师专著上的定义，Lagrange描述下的矢径$\textbf{\textit{r}}$是显态函数，而且进一步，Lagrange描述下的所有场函数都是显态函数。\par
+矢径$\textbf{\textit{r}}$确定了，即可确定Lagrange基矢量。其中Lagrange协变基矢量 $\hat{\textit{\textbf{g}}}_i$是物理实在的，其定义式为：
+\begin{equation*}
+    \hat{\textit{\textbf{g}}}_i=\frac{\partial\textbf{\textit{r}}}{\partial \hat x^i}=\hat{\textit{\textbf{g}}}_i( \hat{x}^m,\hat t)\tag{1-12}
+\end{equation*}
+之后同样可以利用对偶关系来确定逆变基矢量$\hat{\textit{\textbf{g}}}^i$，这里不再赘述。与空间几何点上固定的、静止不动的Euler基矢量不同，随物质点运动的Lagrange基矢量，是随体基矢量。当然，(1-12)中的Lagrange协变基矢量 $\hat{\textit{\textbf{g}}}_i$仍然是自然基矢量，构成Lagrange自然标架。Lagrange自然标架是随体的、动态的自然标架。\par
+很显然，在任何一个瞬间Lagrange自然标架与静态的自然标架相比，没有任何区别。鉴于这种“无差别性”，我们由如下定性命题：\par
+静态空间域中的张量代数，在动态的Lagrange空间域$\hat{x}^m$中仍然成立。\par
+静态空间域上的广义协变微分学，在动态的Lagrange空间域$\hat{x}^m$中仍然成立。\par
+因此，根据协变形式不变性公设可以得到Lagrange描述下自然基矢量对坐标$\hat{x}^m$的广义协变导数：
+\begin{equation*}
+    \nabla_{\hat{m}} \hat{\textit{\textbf{g}}}^i := \frac{\partial \hat{\textit{\textbf{g}}}^i}{\partial \hat{x}^m}+\hat{\textit{\textbf{g}}}^k\hat{\Gamma }_{km}^{i}
+\end{equation*}
+
+\begin{equation*}
+     \nabla_{\hat{m}} \hat{\textit{\textbf{g}}}_i := \frac{\partial \hat{\textit{\textbf{g}}}_i}{\partial \hat{x}^m}-\hat{\textit{\textbf{g}}}_k \hat{\Gamma }_{im}^{k} 
+     \tag{1-13}
+\end{equation*}
+由于度量张量的Lagrange协变分量$\hat{g}_{ij}$的行列式的根式为$\sqrt{\hat{g}}$,其定义式为
+\begin{equation*}
+    \sqrt{\hat{g}}=(\hat{\textit{\textbf{g}}}_1 \times \hat{\textit{\textbf{g}}}_2 )\cdot \hat{\textit{\textbf{g}}}_3
+\end{equation*}
+$\sqrt{\hat{g}}$可视为3-指标Lagrange广义分量，进而在协变形式不变性公设下，其对时间的广义协变导数为
+\begin{align*}
+    \nabla_{\hat{m}}\sqrt{\hat{g}}&= \frac{\partial[(\hat{\textit{\textbf{g}}}_1 \times \hat{\textit{\textbf{g}}}_2 )\cdot \hat{\textit{\textbf{g}}}_3]}{\partial \hat{x}^m}-[(\hat{\textit{\textbf{g}}}_l \times \hat{\textit{\textbf{g}}}_2 )\cdot \hat{\textit{\textbf{g}}}_3]\hat{\Gamma }_{1m}^{l}  -[(\hat{\textit{\textbf{g}}}_1 \times \hat{\textit{\textbf{g}}}_l )\cdot \hat{\textit{\textbf{g}}}_3]\hat{\Gamma }_{2m}^{l}  -[(\hat{\textit{\textbf{g}}}_1 \times \hat{\textit{\textbf{g}}}_2 )\cdot \hat{\textit{\textbf{g}}}_l]\hat{\Gamma }_{3m}^{l} \\
+    &=\frac{\partial [(\hat{\textit{\textbf{g}}}_1 \times \hat{\textit{\textbf{g}}}_2 )\cdot \hat{\textit{\textbf{g}}}_3]}{\partial \hat{x}^m}-\sqrt{\hat{g}}\hat{\Gamma }_{1m}^1 -\sqrt{\hat{g}}\hat{\Gamma }_{2m}^2 -\sqrt{\hat{g}}\hat{\Gamma }_{3m}^3 \\
+    &=\frac{\partial \sqrt{\hat{g}}}{\partial \hat{x}^m}-\sqrt{\hat{g}}\hat{\Gamma }_{jm}^j \tag{1-14}
+\end{align*}
+所以根据(1-13)与(1-14)可知，
+\begin{equation*}
+    \nabla_{\hat{m}}(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^i)=\frac{\partial (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^i)}{\partial \hat{x}^m}-(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^i)\hat{\Gamma }_{jm}^j+(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^k)\hat{\Gamma }_{km}^i\tag{1-15}
+\end{equation*}
+但是，(1-15)尚还不是协变微分不变式。此时，缩并指标i，m，可得：
+\begin{equation*}
+     \nabla_{\hat{m}}(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)=\frac{\partial (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)}{\partial \hat{x}^m}-(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)\hat{\Gamma }_{jm}^j+ (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^k)\hat{\Gamma }_{km}^m\tag{1-16}
+\end{equation*}
+注意到(1-16)中的后两个代数项组合在一起，正好抵消：
+\begin{equation*}
+    -(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)\hat{\Gamma }_{jm}^j+ (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^k)\hat{\Gamma }_{km}^m \equiv 0
+\end{equation*}
+此时随着Christoffel符号的消失，(1-16)退化为：
+\begin{equation*}
+     \nabla_{\hat{m}}(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)=\frac{\partial (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)}{\partial \hat{x}^m}\tag{1-17}
+\end{equation*}
+为了推导(1-1)，我们来回忆对于实体张量 $\textit{\textbf{T}} $ 的广义协变导数与偏导数的关系：
+\begin{equation*}
+    \nabla_{\hat{m}}\textit{\textbf{T}} = \frac{\partial\textit{\textbf{T}} }{\partial \hat{x}^m}\tag{1-18}
+\end{equation*}
+下面进行最后的推导：
+\begin{align*}
+    \nabla_{\hat{m}} \Big(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m\otimes \textit{\textbf{T}} \Big) &=[ \nabla_{\hat{m}} (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)] \otimes \textit{\textbf{T}} + (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m) \otimes (\nabla_{\hat{m}} \textit{\textbf{T}})\\
+    &=\frac{\partial (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m)}{\partial \hat{x}^m} \otimes \textit{\textbf{T}} + (\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m) \otimes \frac{\partial\textit{\textbf{T}} }{\partial \hat{x}^m}\\
+    &=\frac{\partial}{\partial \hat{x}^m}\Big(\sqrt{\hat{g}}\hat{\textit{\textbf{g}}}^m\otimes \textit{\textbf{T}} \Big) 
+\end{align*}
+此处，第一个等式用到Leibniz法则，第二个等式用到(1-17)和(1-18)，第三个等式还是利用Leibniz法则。由此(1-1)在Lagrange描述下仍然成立。\par
+
+\section{第二题}
+\begin{center}
+\fontsize{18pt}{18pt}\selectfont
+协变形式不变性公设，就是对称性公设。
+\end{center}
+\par
+协变形式不变性是普遍存在于平坦时空的不变性质，借此实现协变微分学与协变变分学的公理化，可以使其逻辑结构致精致简，将理论体系的对称性加强到极致。\par
+在Ricci学派的经典协变微分学中，核心是“协变性”思想，但是在经典张量分析的理论体系中，只有对分量的协变导数，却没有定义对基矢量的协变导数，这极大地破坏了理论体系的对称性，同时使经典张量分析陷入了计算的泥潭。这时殷老师在Bourbaki学派的公理化思想下，引入协变形式不变性公设，将Ricci学派的张量协变微分学发展为公理化的广义协变微分学；还将局部化的张量变分学拓展为张量协变变分学，并进一步公理化，发展为广义协变变分学。另外，由公设衍生出的协变微分变换群也成功实现了Gauss“用观念代替计算”的理想，减少了Christoffel符号带来的计算量。\par
+由此可见，协变形式不变性公设为张量分析的理论体系带来了巨大的优化，但是在为这一硕果感到欣喜的同时，我们也需要对协变形式不变性公设本身有足够深入的思考，以便于更加得心应手地利用这把“利器”。在深度阅读了殷老师的专著《广义协变导数与平坦时空的协变形式不变性》后，我们断言：协变形式不变性公设，就是对称性公设。下面从五个角度进行对称性比较。\par
+\subsection{比较空间域与时间域上公设的内涵}
+协变形式不变性公设在空间域与时间域下略有不同，但是核心思想一致，现在将其罗列如下：\par
+空间域中的协变形式不变性公设：\par
+广义分量的广义协变导数，与其形式一致的分量的协变导数相比，在表观形式上具有一致性。\par
+Euler时间域上的协变形式不变性公设：\par
+Euler广义分量对时间t的广义协变导数，与Euler分量对时间t的狭义协变导数，在表观形式上都完全一致。\par
+Lagrange时间域上的协变形式不变性公设：\par
+Lagrange广义分量对时间t的广义协变导数，与Lagrange分量对时间t的狭义协变导数，在表观形式上都完全一致。\par
+其中Euler时间域与Lagrange时间域只是由于坐标选取不同而产生，两者都是时间域的一种特定表现，因为Riemann曾经有一个重要思想：“坐标是研究者强加在空间上的外部结构。”所以这两种时间域其实本质相同。\par
+不难发现，空间域与时间域上的协变形式不变性公设是相当对称的，都是将分量对于坐标（或者时间）的狭义协变导数拓展为广义分量对于坐标（或时间）的广义协变导数。而时间从某种角度来说也可以认为是特殊的“坐标”，所以平坦时空下的公设其实可以进行统一，这也可以体现是空间域与时间域下的公设的对称性，而公设的对称性并不是人为规定的，而是平坦时空本身对称性的客观体现。\par
+一句话概括，协变形式不变性公设在空间域与时间域上内涵是对称统一的：要确保物理学方程的客观性，物理量及其对坐标（或时间）导数必须具有协变性。想要更深入地理解协变形式不变性公设的内涵，就必须要在关键概念的具体形式上进行思考与辨析，这将在2.2节展开讨论。\par
+
+\subsection{比较空间域与时间域上关键性概念、概念的定义式、概念的计算式}
+如果要从广义协变微分学中选出一个最重要的概念，那想必只能是n-指标广义分量的广义协变导数。由于不同阶的广义分量的广义协变导数只是在代数项上的多少有区别，在每项具体的内涵上是一致的，所以下面以1-指标广义分量对坐标（或时间）的广义协变导数为例：\par
+空间域上1-指标广义分量对坐标的广义协变导数：\par
+\begin{equation*}
+    \nabla_m\textit{\textbf{p}}^i := \frac{\partial \textit{\textbf{p}}^i}{\partial x^m}+\textit{\textbf{p}}^k\Gamma_{km}^{i}
+\end{equation*}
+\begin{equation*}
+    \nabla_m\textit{\textbf{p}}_i := \frac{\partial \textit{\textbf{p}}_i}{\partial x^m}-\textit{\textbf{p}}_k\Gamma_{im}^{k}
+    \tag{2-1}
+\end{equation*}
+注：Lagrange空间域中只是多给广义分量与坐标多加一顶“小帽子”，其他形式与（2-1）一致，故此处不再单独讨论。\par
+Euler时间域上1-指标Euler广义分量对时间 $t$的广义协变导数：\par
+\begin{equation*}
+    \nabla_t\textit{\textbf{p}}^i := \frac{d_t\textit{\textbf{p}}^i}{dt}+\textit{\textbf{p}}^k\Gamma_{km}^{i} v^m
+\end{equation*}
+\begin{equation*}
+    \nabla_t\textit{\textbf{p}}_i := \frac{d_t\textit{\textbf{p}}_i}{dt}-\textit{\textbf{p}}_k\Gamma_{im}^{k} v^m
+    \tag{2-2}
+\end{equation*}
+\par
+Lagrange时间域上1-指标Lagrange广义分量对时间 $t$的广义协变导数：\par
+\begin{equation*}
+    \nabla_{\hat{t}} \hat{\textit{\textbf{p}}}^i := \frac{d_{\hat{t}} \hat{\textit{\textbf{p}}}^i}{d\hat{t}}+\hat{\textit{\textbf{p}}}^m\nabla_{\hat{m}} \hat{v}^i
+\end{equation*}
+\begin{equation*}
+    \nabla_{\hat{t}}\hat{\textit{\textbf{p}}}_i := \frac{d_{\hat{t}} \hat{\textit{\textbf{p}}}_i}{d\hat{t}}-\hat{\textit{\textbf{p}}}_m \nabla_{\hat{i}} \hat{v}^m
+    \tag{2-3}
+\end{equation*}
+\par
+我们注意到，（2-1）与（2-2）在形式上非常对称，其中将 $\nabla_m(\cdot)$更换为$\nabla_t(\cdot)$，这是由于前者是对空间域的坐标求广义协变导数，而后者是对时间域的时间求广义协变导数，如果将时间t也是为一种特殊的“坐标”，那么两者在形式上的对称也就是客观合理的；将对坐标的偏导数$\frac{\partial (\cdot)}{\partial x^m}$更换为物质点对时间的物质导数$\frac{d_t (\cdot)}{dt}$，后者其实也可以理解为时间域上的对时间的偏导数在物质点上的特殊情况，两者在本质上是相同的，所以在形式上的对称也就是客观合理的；将 $\Gamma_{im}^{k}$ 更换为 $\Gamma_{im}^{k} v^m$，两者都是对基矢量求偏导数（或者物质导数）后再对基矢量分解时产生的“联络系数”，本质上都是刻画基矢量随坐标（或时间）的变化，所以在形式上的对称也就是客观合理的。\par
+但是我们也发现（2-2）与（2-3）虽然都是时间域上广义分量对时间t的广义协变导数，但是在最后一项上的系数却分别是$\Gamma_{im}^{k} v^m$与$\nabla_{\hat{i}} \hat{v}^m$，有所不同。这难道是不对称的吗？我们先给出结论，两者在本质上都是“联络系数”，都可以刻画物质点处基矢量随时间的变化，只是因为描述时间域时分别选取了Euler描述与Lagrange描述，所以产生了这个差异。为了更深入地理解这种差异在本质上是相同的。下面将两个时间域上的基矢量的物质导数分别给出，并给出两种“联络系数”的计算式：\par
+首先是物质点处Euler基矢量的物质导数：\par
+\begin{equation*}
+    \frac{d_t \textit{\textbf{g}}_i}{dt}:=\frac{\partial \textit{\textbf{g}}_i}{\partial t}\Big|_{\hat{\xi}^p}=\frac{\partial \textit{\textbf{g}}_i}{\partial x^m}\frac{\partial x^m}{\partial t}= \textit{\textbf{g}}_j\Gamma_{im}^j v^m
+\end{equation*}
+\begin{equation*}
+    \frac{d_t \textit{\textbf{g}}^i}{dt}:=\frac{\partial \textit{\textbf{g}}^i}{\partial t}\Big|_{\hat{\xi}^p}=\frac{\partial \textit{\textbf{g}}^i}{\partial x^m}\frac{\partial x^m}{\partial t}=- \textit{\textbf{g}}^j\Gamma_{jm}^i v^m
+    \tag{2-4}
+\end{equation*}
+\par
+此处的Christoffel符号与空间域中的完全一致，给出其定义式与计算式：\par
+\begin{equation*}
+    \Gamma_{jm}^k := \frac{\partial \textit{\textbf{g}}_j}{\partial x^m}\cdot \textit{\textbf{g}}^k
+    \tag{2-5}
+\end{equation*}
+\begin{equation*}
+    \Gamma_{ij}^l = \frac{1}{2} g^{kl}\Big( \frac{\partial g_{ik}}{\partial x^j}
+    +\frac{\partial g_{jk}}{\partial x^i} -\frac{\partial g_{ij}}{\partial x^k} \Big)
+    \tag{2-6}
+\end{equation*}
+\par
+其中（2-5）是定义式，（2-6）是计算式。\par
+此处的 $v^m$则是连续体上分布的速度场在该物质点处的取值 $\textbf{v}$的逆变分量：\par
+\begin{equation*}
+    v^m=\frac{\partial x^m}{\partial t}\Big|_{\hat{\xi}^p}=\frac{d_t x^m}{dt}
+    \tag{2-7}
+\end{equation*}
+\par
+然后是物质点处Lagrange基矢量的物质导数：\par
+\begin{equation*}
+     \frac{d_{\hat{t}} \hat{\textit{\textbf{g}}}_i}{d\hat{t}}=
+     \frac{\partial}{\partial \hat{t}}
+     \Big(\frac{\partial\textbf{\textit{r}}}{\partial \hat x^i}\Big)=
+     \frac{\partial}{\partial \hat x^i}
+     \Big(\frac{\partial\textbf{\textit{r}}}{\partial \hat{t}}\Big)=
+     \frac{\partial\textbf{\textit{v}}}{\partial \hat x^i}=
+     (\nabla_{\hat{i}} {\hat{v}}^k) \hat{\textit{\textbf{g}}}_k
+     \tag{2-8}
+\end{equation*}
+\par
+物质点处Lagrange逆变基矢量的物质导数同理，此处不再赘述。此处的速度场与Euler时间域的速度场也基本一致，也不再赘述。\par
+通过对比（2-4）与（2-8）不难发现$\Gamma_{im}^{k} v^m$与$\nabla_{\hat{i}} {\hat{v}}^k$都是由连续体上分布的速度场在物质点处的速度取值衍生出来的，本质上都是刻画了基矢量随时间的变化，也可以理解为空间域上的Christoffel符号在Euler时间域和Lagrange时间域上的等价形式。\par
+综合对上述各种概念的分析，这时再回顾（2-1）-（2-3），将会更深刻地认识到广义协变导数在空间域与时间域上无与伦比的对称性，其具体表现就是：三种广义协变导数的表观形式一致，并且式中每一个代数项也都有着相同的本质与意义。\par
+
+
+\subsection{比较空间域上的协变微分学与时间域上的协变微分学}
+%这里可以详细讨论广义对偶不变性与表观形式不变性
+%以及与Ricci变换的关系
+%再加上对两者运动学含义的理解
+在2.2节讨论空间域与时间域上的概念时，其实也已经对协变微分学进行了部分讨论。在此基础上，本解将深入讨论在空间域与时间域上的广义分量与协变微分变换群。\par
+无论是空间域还是时间域的广义协变微分学，都是建立在对广义分量的广义协变导数上，广义协变导数在上节中已经进行了详尽的讨论，在本节会进一步澄清n-指标广义分量的含义，毕竟它是空间域与时间域上的协变微分学的最重要的基础量系。不妨以0-指标广义分量 矢径$\textbf{\textit{r}}$与1-指标广义分量协（逆）变基矢量$\textit{\textbf{g}}_i$（$\textit{\textbf{g}}^i$）为例进行分析。\par
+三维平坦空间，建立曲线坐标系，取自然坐标 $x^i$与$x^{i'}
+$。空间中任意一点$x^i$的矢径$\textbf{\textit{r}}$为：
+\begin{equation*}
+    \textbf{\textit{r}}=\textbf{\textit{r}}(x^i)=\textbf{\textit{r}}(x^{i'})
+    \tag{2-9}
+\end{equation*}
+对（2-9）取微分有：\par
+\begin{equation*}
+    d\textbf{\textit{r}}=\frac{\partial \textbf{\textit{r}}}{\partial x^i}dx^i=
+    \textbf{\textit{g}}_i dx^i
+\end{equation*}
+
+\begin{equation*}
+    d\textbf{\textit{r}}=\frac{\partial \textbf{\textit{r}}}{\partial x^{i'}} dx^{i'}=
+    \textbf{\textit{g}}_{i'} dx^{i'}
+    \tag{2-10}
+\end{equation*}
+尽管 $d\textbf{\textit{r}}$是特殊矢量，但是（2-10）中已经包含了两种极其要紧且普遍的不变性。一是广义对偶不变性，即$\textbf{\textit{g}}_i$与$dx^i$（或$\textbf{\textit{g}}_{i'}$与$dx^{i'}$）广义对偶不变地生成了矢量$\textbf{\textit{r}}$；二是表观形式不变性，即在新、老坐标系下，矢量$\textbf{\textit{r}}$的分解式$\textbf{\textit{g}}_i dx^i$与$\textbf{\textit{g}}_{i'} dx^{i'}$在表观形式上完全一致。广义对偶不变性与表观形式不变性，不仅是$\textbf{\textit{r}}$的不变性质，而且是所有标量、矢量和张量共同的不变性质。\par
+进一步，利用$\textbf{\textit{r}}$的广义对偶不变性与表观形式不变性，可以诱导出基矢量的指标升降与坐标变换关系，殷老师在专著中将其统称为基矢量的Ricci变换。我们不难将其推广至所有几何量得到n-指标广义分量的概念：\par
+任何满足Ricci变换的几何量，都被称为广义分量。\par
+如果广义分量具有n个满足Ricci变换的指标，我们就称之为“n-指标广义分量”。\par
+至此，我们已经澄清了空间域与时间域上的协变微分学的最重要的基础量系，两个协变微分学的核心都是建立在广义分量之上，由此可知这或许就是这两个体系如此对称的重要原因。\par
+由于在空间域与时间域上的广义协变导数在上一节已经进行了详尽的讨论，这里则会比较空间域与时间域上的协变微分学中的协变微分变换群，因为它正是“用观念代替计算”这一思想的重要体现，所以特此进行详细比较。\par
+首先是空间域下的协变微分变换群：\par
+\begin{equation*}
+    \nabla_m\textit{\textbf{g}}^i=\textbf{0}
+\end{equation*}
+\begin{equation*}
+    \nabla_m\textit{\textbf{g}}_i=\textbf{0}
+    \tag{2-11}
+\end{equation*}
+\par
+根据空间域上的协变形式不变性公设，空间域上的协变微分变换群的表现形式就是基矢量对坐标的广义协变导数的计算式。\par
+然后是Euler时间域下的协变微分变换群：\par
+\begin{equation*}
+    \nabla_t\textit{\textbf{g}}^i=\textbf{0}
+\end{equation*}
+\begin{equation*}
+    \nabla_t\textit{\textbf{g}}_i=\textbf{0}
+    \tag{2-12}
+\end{equation*}
+\par
+根据Euler时间域上的协变形式不变性公设，Euler时间域上的协变微分变换群的表现形式就是Euler基矢量对时间的广义协变导数的计算式。\par
+最后是Lagrange时间域下的协变微分变换群：\par
+\begin{equation*}
+    \nabla_{\hat{t}} \hat{\textit{\textbf{g}}}^i =\textbf{0}
+\end{equation*}
+\begin{equation*}
+    \nabla_{\hat{t}} \hat{\textit{\textbf{g}}}_i =\textbf{0}
+    \tag{2-13}
+\end{equation*}
+\par
+根据Lagrange时间域上的协变形式不变性公设，Lagrange时间域上的协变微分变换群的表现形式就是Lagrange基矢量对时间的广义协变导数的计算式。\par
+通过对比（2-11）-（2-13），不难发现这些协变微分变换群具有惊人的对称性，表观形式几乎完全一样。无论是在空间域还是时间域，基矢量的广义协变导数都是“零”，也即基矢量可以自由进出广义协变导数，由此其他广义分量的广义协变导数的计算也都大大简化。这种对称性与简洁性都是来自于协变形式不变性公设，正是引入了该公设才使得空间域与时间域的协变微分学能够如此对称优美。\par
+
+
+
+\subsection{比较Euler描述下的协变微分学与Lagrange描述下的协变微分学}
+%主打一个对称
+首先是Euler描述与Lagrange描述下的协变微分学的基础量系，都是n-指标广义分量，其满足Ricci变换，是由广义对偶不变性与协变形式不变性诱导出来的，这点在2.3节中已经详细论述过，这里不再赘述。\par
+然后是Euler描述与Lagrange描述下广义分量对坐标的广义协变导数。由（1-3）和（1-11）可知，在Euler描述下的场函数是时间的隐态函数，在Lagrange描述下的场函数是时间的显态函数，这是由两种坐标系的特性决定的。不过也注意到两种描述下的坐标仍然是场函数的直接自变量，因此两种描述下的空间域的协变微分学完全与静态空间域的协变微分学一致，那么Euler空间域与Lagrange空间域中对坐标的广义协变导数也就是完全对称的。\par
+之后是Euler描述与Lagrange描述下物质点处基矢量对时间的物质导数。具体形式已经由（2-4）与（2-8）给出，不难发现$\Gamma_{im}^{k} v^m$与$\nabla_{\hat{i}} {\hat{v}}^k$都是由连续体上分布的速度场在物质点处的速度取值衍生出来的，本质上都是刻画了基矢量随时间的变化，也可以理解为空间域上的Christoffel符号在Euler时间域和Lagrange时间域上的等价形式。因此，Euler时间域与Lagrange时间域中基矢量对坐标的广义协变导数也就是完全对称的。\par
+接着是Euler描述与Lagrange描述下物质点处广义分量对时间的广义协变导数。不妨以1-指标广义分量为例，其在两种时间域上的广义协变导数的具体定义式已经由（2-2）和（2-3）给出，可以观察到两式的表观形式也几乎完全一致，仅仅是“联络系数”有所不同，而这两种联络系数$\Gamma_{im}^{k} v^m$与$\nabla_{\hat{i}} {\hat{v}}^k$又都是由物质点处的基矢量对时间的物质导数产生的，两者在本质上的关联已经在上一段中给出答案，这里就不再赘述。因此，Euler时间域与Lagrange时间域中物质点处广义分量对时间的广义协变导数也是完全对称的。\par
+最后是Euler描述与Lagrange描述下时空的协变微分变换群。具体形式已经由（2-11）、（2-12）和（2-13）给出，不难发现这些协变微分变换群具有惊人的对称性，表观形式完全一样。无论是在空间域还是时间域，基矢量的广义协变导数都是“零”，也即基矢量可以自由进出广义协变导数，由此其他广义分量的广义协变导数的计算也都大大简化。这种对称性与简洁性都是来自于协变形式不变性公设，正是引入了该公设才使得空间域与时间域的协变微分学能够如此对称优美。
+
+
+\subsection{比较空间域上的广义协变微分与时间域上的广义协变变分}
+%借助泰勒展开将前几节的分析平移到变分学
+空间域上的广义协变微分与时间域上的广义协变变分都是借助场函数的Taylor级数展开，从空间域和时间域的广义协变导数衍生出来的，其中通过舍弃高阶无穷小量，构造线性关系，从而使前者可以完美继承后者的所有概念与性质。\par
+下面以空间域上的广义协变微分为例：\par
+对于一般的张量场函数 $ \textit{\textbf{T}} $ ，有
+\begin{equation*}
+    \textit{\textbf{T}}=\textit{\textbf{T}}(x^m)
+    \tag{2-14}
+\end{equation*}
+令坐标 $x^m$产生一增量 $\Delta x^m$，则场函数$ \textit{\textbf{T}} $也必然产生一增量$\Delta \textit{\textbf{T}} $，亦即
+\begin{equation*}
+    x^m \rightarrow x^m + \Delta x^m
+\end{equation*}
+\begin{equation*}
+    \textit{\textbf{T}} \rightarrow \textit{\textbf{T}} + \Delta \textit{\textbf{T}}
+    \tag{2-15}
+\end{equation*}
+张量场函数的增量$\Delta \textit{\textbf{T}} $可表达为：
+\begin{equation*}
+    \Delta \textit{\textbf{T}} := \textit{\textbf{T}}(x^m + \Delta x^m) - \textit{\textbf{T}}(x^m)
+    \tag{2-16}
+\end{equation*}
+将函数 $\textit{\textbf{T}}$在坐标$x^m$的邻域内展开为Taylor级数：
+\begin{equation*}
+    \textit{\textbf{T}}(x^m + \Delta x^m)=\textit{\textbf{T}}(x^m)+\frac{\partial \textit{\textbf{T}}}{\partial x^m}\Delta x^m+\cdots \cdots 
+    \tag{2-17}
+\end{equation*}
+当$\Delta x^m$足够小时，（2-17）中起决定性作用的是$\Delta x^m$的线性项 $\frac{\partial \textit{\textbf{T}}}{\partial x^m}\Delta x^m$，因此，我们从线性项提取一阶微分形式：
+\begin{equation*}
+    d\textit{\textbf{T}}=\frac{\partial \textit{\textbf{T}}}{\partial x^m}d x^m
+    \tag{2-18}
+\end{equation*}
+（2-18）可以推广到任何场函数（$\cdot$）:
+\begin{equation*}
+    d(\cdot)=\frac{\partial (\cdot)}{\partial x^m}d x^m
+    \tag{2-19}
+\end{equation*}
+（2-19）表明，普通微分 $d(\cdot)$ 是普通偏导数$\frac{\partial (\cdot)}{\partial x^m}$ 的线性组合，而组合系数是$d x^m$。借助这个线性关系，我们就可以将普通偏导数的相关概念与性质传递到普通微分上。\par
+同理，空间域上的广义协变微分、时间域上的物质变分和广义协变变分也是通过与以上相似的级数展开得到，因此空间域上的广义协变微分与时间域上的广义协变变分可以通过线性关系直接继承空间域和时间域上的广义协变导数的概念与性质，而这些在前面几节已经详细论述。特别的，空间域上的广义协变微分与时间域上的广义协变变分的对称性也由此得到。\par
+
+
+\subsection{总结}
+综上所述，我们已经从以上五个角度详细地论述了“协变形式不变性公设，就是对称性公设”这一命题。\par
+既然协变形式不变性公设具有如此优美的对称性和衍生的简明性质，那么我们不妨总结一下提升张量分析的对称性的好处：\par
+
+首先最直接的就是减轻了对于诸多公式的记忆负担，协变形式不变性公设使得我们只用记住某种分量的广义协变导数，就可以拓展到所有广义分量的广义协变导数。公式的简化与统一使得运算规则与运算过程都更加简洁，也使得我们更容易发现理解代数结构的本质特征，进而加深对于广义协变微分学的理解，逐渐用观念代替计算，使得张量分析致精致简。\par
+然后还揭示了协变形式不变性是时空的本征不变性质。对坐标的协变形式不变性是空间域上的不变性，对时间的协变形式不变性是时间域上的不变性，两者综合起来就是时空的本征不变性质。这也符合抽象代数之母诺特的思想：“任何对称性都对应某种形式的守恒律”，这里具体表现为协变形式不变性公设，这个对称性公设对应了时空的本征不变性质。\par
+最后是这将使得协变微分学的协变性达到极致，弥补了Ricci学派的局限性。现在来看，经典协变微分学重分量，轻基矢量。其后果是，Ricci学派的协变性思想损失大半，而殷老师引入协变形式不变性公设，使得基矢量与分量成为协变微分学的共同主角。这并非主观臆断，而是空间的客观性质决定的：从Ricci变换的角度来看，基矢量与分量没有任何差别，同属于“广义分量”的集合。至此，张量分析体系的协变性达到圆满，在领略到其中的对称之美后，我相信它也会为我未来在力学的探索中赋予更大的自由度。
+
+
+
+\subsection*{参考文献:}
+[1]殷雅俊.广义协变导数与平坦时空的协变形式不变性[M].北京：清华大学出版社，2021.8.\par
+[2]黄克智，薛明德，陆明万.张量分析[M].2版.北京：清华出版社，2003.\par
+
+\end{document}
+
